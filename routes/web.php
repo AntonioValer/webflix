@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\aProposController;
+use App\Http\Controllers\FiorellaFriendController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/fiorella/{friend?}', [FiorellaFriendController::class, 'show']);
+
+Route::get('/a-propos', [aProposController::class, 'person']);
+
+Route::get('/a-propos/{user}', [aProposController::class, 'aproposPerson']); 
